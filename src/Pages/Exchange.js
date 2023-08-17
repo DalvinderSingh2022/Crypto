@@ -5,9 +5,9 @@ import Error from '../components/Error';
 import Card from '../components/Card';
 
 const Exchange = () => {
-    const [isLoading, isError, exchanges] = useFetch("exchanges?per_page=30");
+    const [isLoading, { isError, message }, exchanges] = useFetch("exchanges?per_page=30");
 
-    if (isError) return <Error />;
+    if (isError) return <Error message={message} />;
     if (isLoading) return <Loading />;
     return (
         <section>{
