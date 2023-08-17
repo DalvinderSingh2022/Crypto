@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function useFetch(url) {
     const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState({ isError: false, message: "" });
     const [data, SetData] = useState([]);
 
     useEffect(() => {
@@ -14,16 +14,16 @@ function useFetch(url) {
                     SetData(result);
                     setIsLoading(false);
                 } else {
-                    setIsError(true);
+                    setError({ isError: true, message: response.statusText || `Error invalid response status: ${response.status}` });
                 }
-            } catch {
-                setIsError(true);
+            } catch (e) {
+                setError({ isError: true, message: e.message });
                 setIsLoading(false);
             }
         }
         fetchData();
     }, [url])
-    return [isLoading, isError, data];
+    return [isLoading, error, data];
 }
 
 export default useFetch;
