@@ -4,7 +4,7 @@ $background : rgb(50, 150, 150);
 $color1 : rgb(249, 249, 249);
 $color2: rgb(74, 74, 74);
 $greyShadow : rgb(240 240 240);
-$greeenShadow: rgb(100, 150, 150);
+$greenShadow: rgb(105, 165, 165);
 
 * {
     margin: 0;
@@ -14,9 +14,11 @@ $greeenShadow: rgb(100, 150, 150);
 }
 
 nav {
+    position: relative;
     background-color: $background;
     padding: 32px 68px;
-    box-shadow: 6px 3px 42px 0 $greeenShadow;
+    box-shadow: 6px 3px 42px 0 $greenShadow;
+    z-index: 99;
 
     ul {
         list-style: none;
@@ -34,9 +36,30 @@ nav {
 }
 
 .home {
+    background-color: $greyShadow;
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: calc(100vh - 96px);
 
-    img {
-        height: calc(100vh - 102px);
+    .coin {
+        position: absolute;
+        object-fit: cover;
+        width: 20rem;
+        right: 10%;
+        filter: grayscale(1);
+        animation: image .8s linear infinite alternate;
+    }
+
+    @keyframes image {
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .background {
+        position: absolute;
+        height: 100%;
         width: 100%;
         object-fit: cover;
     }
@@ -186,6 +209,46 @@ section {
             text-align: center;
             font-weight: 500;
             margin-top: 2rem;
+        }
+    }
+
+    &.error {
+        font-size: 2rem;
+        color: $background;
+        height: calc(100vh - 96px);
+        padding: 0;
+        align-items: center;
+        flex-direction: column;
+
+        i {
+            font-size: 8rem;
+        }
+    }
+}
+
+.page {
+    display: flex;
+    padding: 0rem 2rem 4rem;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: -2rem;
+    font-size: 2rem;
+
+    button {
+        padding: .2rem 0;
+        width: 8rem;
+        font-weight: 600;
+        background-color: $background;
+        color: $color1;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &:disabled {
+            background-color: $greyShadow;
+            color: $color2;
+            cursor: default;
         }
     }
 }
