@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useFetch from '../components/useFetch';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
+import { AppContext } from '../App';
 
 const Home = () => {
+    const { symbol, currency } = useContext(AppContext);
     const [coin, setCoin] = useState({});
-    const [isLoading, { isError, message }, list] = useFetch("/coins/markets?vs_currency=inr&per_page=10&page=0");
+    const [isLoading, { isError, message }, list] = useFetch(`/coins/markets?vs_currency=${currency}&per_page=10&page=0`);
 
     useEffect(() => {
         setCoin({ ...list[0], rank: 1 })
@@ -38,9 +40,9 @@ const Home = () => {
                                 <tr key={coin.id} onClick={() => setCoin({ ...coin, rank: (index + 1) })}>
                                     <td>{index + 1}.</td>
                                     <td>{coin.name}</td>
-                                    <td>₹ {coin.current_price}</td>
+                                    <td>{symbol + " " + coin.current_price}</td>
                                     <td>{coin.market_cap_change_percentage_24h} %</td>
-                                    <td>₹ {coin.market_cap}</td>
+                                    <td>{symbol + " " + coin.market_cap}</td>
                                 </tr>);
                         })}
                     </tbody>

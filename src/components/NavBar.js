@@ -1,7 +1,10 @@
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AppContext } from '../App';
 
 const NavBar = () => {
+    const { changeCurrency, symbol, currency } = useContext(AppContext);
+
     return (
         <nav>
             <ul>
@@ -15,6 +18,7 @@ const NavBar = () => {
                     <NavLink to="/coins">Coins</NavLink>
                 </li>
             </ul>
+            <button onClick={changeCurrency}>{symbol + " " + currency.toUpperCase()}</button>
         </nav>
     )
 }
