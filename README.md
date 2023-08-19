@@ -3,8 +3,8 @@
 Welcome to the Crypto Sats website! This project is built using React, React Router, and Sass to provide a platform for sharing and exploring cryptocurrency-related content.
 
 ![Screenshot 2023-08-18 200735](https://github.com/DalvinderSingh2022/Crypto/assets/110463060/eea7ebf2-2d89-4137-82c6-191fc0b82fe8)
-![Screenshot 2023-08-18 200822](https://github.com/DalvinderSingh2022/Crypto/assets/110463060/db63cfab-2bc1-463e-a8f8-6ed5ca55e50e)
 ![Screenshot 2023-08-18 200802](https://github.com/DalvinderSingh2022/Crypto/assets/110463060/1e14e260-dc18-45f6-b0b2-4a46e6288e95)
+![Screenshot 2023-08-18 200822](https://github.com/DalvinderSingh2022/Crypto/assets/110463060/db63cfab-2bc1-463e-a8f8-6ed5ca55e50e)
 
 
 ## Description
