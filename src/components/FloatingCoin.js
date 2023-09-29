@@ -10,14 +10,14 @@ const FloatingCoin = ({ list, rowRef }) => {
         }, 5000);
 
         Array.from(rowRef.current.querySelectorAll("tr")).forEach((tr, number) => {
-            tr.style.backgroundColor = index == number ? "rgb(240 240 240)" : "";
+            tr.style.backgroundColor = index === number ? "rgb(240 240 240)" : "";
         });
 
         setCoin({ ...list[index], rank: index + 1 });
         setInterval(interval);
 
         return () => clearInterval(interval);
-    }, [list, index]);
+    }, [list, index, rowRef]);
 
 
     return (<div className="image">
